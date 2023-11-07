@@ -50,16 +50,17 @@ function changeWhellToOuter() {
 }
 
 document.addEventListener("keydown", function(event) {
+    console.log(event.key);
     if (event.key === 'ArrowLeft') {
         console.log('rotating left!')
         rotateLeft();
     } else if (event.key === 'ArrowRight') {
         console.log('rotating right!')
         rotateRight();
-    } else if (event.key === 'ArrowDown') {
+    } else if (event.key === 'i') {
         changeWhellToInner();
         console.log(currentWheel);
-    } else if (event.key === 'ArrowUp') {
+    } else if (event.key === 'o') {
         changeWhellToOuter();
         console.log(currentWheel);
     }
