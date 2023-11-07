@@ -6,6 +6,7 @@ const innerWheel = document.querySelector('.wh1')
 const outerWheel = document.querySelector('.wh2')
 
 let combination;
+let deg;
 
 
 function rotateRight() {
@@ -63,6 +64,7 @@ document.addEventListener("keydown", function(event) {
     } else if (event.key === 'o') {
         changeWhellToOuter();
         console.log(currentWheel);
-    }
+    } 
+
   });
 
