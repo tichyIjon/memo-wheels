@@ -5,6 +5,7 @@ let degWh3 = 0;
 let wh1 = document.querySelector('.wh1');
 let wh2 = document.querySelector('.wh2');
 let wh3 = document.querySelector('.wh3');
+let combination = document.querySelector('.combination');
 
 let wheelSelected = 1;
 
@@ -13,23 +14,37 @@ let wh2Scale = 1.23;
 let wh3Scale = 1.5;
 let transformation = {};
 
+let symbolsArr = [
+    'A','B','C','D','E','F','G','H','I','K','L','M','N',
+    'O','P','Q','R','S','T','V','X','Y','Z','Ψ','Φ','ω','Θ',
+    'ע','צ','שׁ'
+]
 
+let wh1Sym = 0;
+let wh2Sym = 0;
+let wh3Sym = 0;
+
+function combinationDisplay() {
+    console.log(symbolsArr[wh1Sym])
+    combination.innerText = `${symbolsArr[wh1Sym]} : ${symbolsArr[wh2Sym]} : ${symbolsArr[wh3Sym]}`
+}
 
 
 function rotateRight() {
-    console.log(wheelSelected);
     if (wheelSelected === 1) {
         degWh1 += 12;
         transformation = {
             transform : `rotate(${degWh1}deg) scale(${wh1Scale})`,
         };
         Object.assign(wh1.style, transformation);
+
     } else if (wheelSelected === 2) {
         degWh2 += 12;
         transformation = {
             transform : `rotate(${degWh2}deg) scale(${wh2Scale})`,
         };
         Object.assign(wh2.style, transformation);
+
     } else if (wheelSelected === 3) {
         degWh3 += 12;
         transformation = {
@@ -41,33 +56,71 @@ function rotateRight() {
 }
 
 function rotateLeft() {
-    console.log(wheelSelected);
     if (wheelSelected === 1) {
-        degWh1 -= 12;
-        transformation = {
-            transform : `rotate(${degWh1}deg) scale(${wh1Scale})`,
-        };
-        Object.assign(wh1.style, transformation);
+        if (wh1Sym > 28) {
+            wh1Sym = 0;
+            degWh1 -= 12;
+            transformation = {
+                transform : `rotate(${degWh1}deg) scale(${wh1Scale})`,
+            };
+            Object.assign(wh1.style, transformation);
+            combinationDisplay();
+        } else {
+            degWh1 -= 12;
+            wh1Sym += 1;
+            transformation = {
+                transform : `rotate(${degWh1}deg) scale(${wh1Scale})`,
+            };
+            Object.assign(wh1.style, transformation);
+            combinationDisplay();
+        }
     } else if (wheelSelected === 2) {
-        degWh2 -= 12;
-        transformation = {
-            transform : `rotate(${degWh2}deg) scale(${wh2Scale})`,
-        };
-        Object.assign(wh2.style, transformation);
+        if (wh2Sym > 28) {
+            wh2Sym = 0
+            degWh2 -= 12;
+            transformation = {
+                transform : `rotate(${degWh2}deg) scale(${wh2Scale})`,
+            };
+            Object.assign(wh2.style, transformation);
+            combinationDisplay();
+        } else {
+            degWh2 -= 12;
+            wh2Sym += 1;
+            transformation = {
+                transform : `rotate(${degWh2}deg) scale(${wh2Scale})`,
+            };
+            Object.assign(wh2.style, transformation);
+            combinationDisplay();
+        }
     } else if (wheelSelected === 3) {
-        degWh3 -= 12;
-        transformation = {
-            transform : `rotate(${degWh3}deg) scale(${wh3Scale})`,
-        };
-        Object.assign(wh3.style, transformation);
+        if (wh3Sym === 29) {
+            wh3Sym = 0
+            degWh3 -= 12;
+            transformation = {
+                transform : `rotate(${degWh3}deg) scale(${wh3Scale})`,
+            };
+            Object.assign(wh3.style, transformation);
+            combinationDisplay();
+        } else {
+            degWh3 -= 12;
+            wh3Sym += 1;
+            transformation = {
+                transform : `rotate(${degWh3}deg) scale(${wh3Scale})`,
+            };
+            Object.assign(wh3.style, transformation);
+            combinationDisplay();
+        }
     } 
-
 }
 
 function startingPosition() {
     degWh1 = 0;
     degWh2 = 0;
     degWh3 = 0;
+    wh1Sym = 0;
+    wh2Sym = 0;
+    wh3Sym = 0;
+    combinationDisplay();
 
     transformation = {
         transform : `rotate(${degWh1}deg) scale(${wh1Scale})`,
@@ -84,7 +137,6 @@ function startingPosition() {
 }
 
 document.addEventListener('keydown', (event) => {
-    console.log(event.key)
     if (event.key === 'd') {
         rotateRight();
     } else if (event.key === 'a') {
@@ -98,5 +150,4 @@ document.addEventListener('keydown', (event) => {
     } else if (event.key === 's') {
         startingPosition()
     }
-
 });

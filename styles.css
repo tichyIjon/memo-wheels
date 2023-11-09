@@ -48,6 +48,12 @@ body {
     transform: scale(1.5);
 }
 
+.combination {
+    position: absolute;
+    z-index: 4;
+    font-size: 50px;
+}
+
 footer {
     padding: 15px;
     display: flex;
@@ -58,3 +64,4 @@ a {
     color: inherit;
     text-decoration: none;
   }
+
