@@ -12,15 +12,18 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto Mono', monospace;
+    background-image: url('./background.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0%;
 }
 
 .wheels {
-    border: 3px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
 
-    height: 90vh;
+    height: 93vh;
 }
 
 .wheel {
@@ -32,6 +35,25 @@ body {
     z-index: 3;
 
     transform: scale(1);
+}
+
+.wh-ellipse {
+    fill: #59514F;
+    stroke: #A6A09C;
+    transition: all 0.1s ease-in-out;
+}
+
+.wh-inner-ellipse {
+    fill: #403B39;
+    stroke: #A6A09C;
+}
+
+line {
+    stroke: #A6A09C;
+}
+
+text {
+    fill: #A6A09C;
 }
 
 .wh2 {
@@ -52,12 +74,14 @@ body {
     position: absolute;
     z-index: 4;
     font-size: 50px;
+    color: #A6A09C;
 }
 
 footer {
     padding: 15px;
     display: flex;
     align-items: center;
+    color: #A6A09C;
 }
 
 a {

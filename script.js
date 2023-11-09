@@ -1,3 +1,5 @@
+console.log(window.innerWidth);
+
 let degWh1 = 0;
 let degWh2 = 0;
 let degWh3 = 0;
@@ -143,10 +145,40 @@ document.addEventListener('keydown', (event) => {
         rotateLeft();
     } else if (event.key === '1') {
         wheelSelected = 1;
+
+
+        let wh2_ellipse = document.querySelector('.wh2-ellipse') 
+        wh2_ellipse.style.fill = '#59514F'
+
+        let wh3_ellipse = document.querySelector('.wh3-ellipse') 
+        wh3_ellipse.style.fill = '#59514F'
+
+        let text = document.querySelector('text')
+        let wh1_ellipse = document.querySelector('.wh1-ellipse') 
+        text.style.fill = '#C06C84'
+        wh1_ellipse.style.fill = '#C06C84'
     } else if (event.key === '2') {
         wheelSelected = 2;
+
+        let wh1_ellipse = document.querySelector('.wh1-ellipse') 
+        wh1_ellipse.style.fill = '#59514F'
+
+        let wh3_ellipse = document.querySelector('.wh3-ellipse') 
+        wh3_ellipse.style.fill = '#59514F'
+
+        let wh2_ellipse = document.querySelector('.wh2-ellipse') 
+        wh2_ellipse.style.fill = '#C06C84'
     } else if (event.key === '3') {
         wheelSelected = 3;
+
+        let wh1_ellipse = document.querySelector('.wh1-ellipse') 
+        wh1_ellipse.style.fill = '#59514F'
+
+        let wh2_ellipse = document.querySelector('.wh2-ellipse') 
+        wh2_ellipse.style.fill = '#59514F'
+
+        let wh3_ellipse = document.querySelector('.wh3-ellipse') 
+        wh3_ellipse.style.fill = '#C06C84'
     } else if (event.key === 's') {
         startingPosition()
     }
