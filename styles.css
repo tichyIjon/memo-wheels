@@ -15,14 +15,33 @@ body {
     background-color: #434541;
 }
 
-@keyframes wheelTurning {
+@keyframes wheel1Turning {
     0% {
-        transform: rotate(0deg);
+        transform: rotate(0deg) scale(1);
     }
     100% {
-        transform: rotate(360deg);
+        transform: rotate(360deg) scale(1);
     }
 }
+
+@keyframes wheel2Turning {
+    0% {
+        transform: rotate(360deg) scale(1.23);
+    }
+    100% {
+        transform: rotate(0deg) scale(1.23);
+    }
+}
+
+@keyframes wheel3Turning {
+    0% {
+        transform: rotate(0deg) scale(1.5);
+    }
+    100% {
+        transform: rotate(360deg) scale(1.5);
+    }
+}
+
 
 .wheels {
     display: flex;
@@ -42,7 +61,10 @@ body {
 
     transform: scale(1);
 
-    animation: wheelTurning 10s linear 0 infinite;
+    animation: wheel1Turning;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 }
 
 .wh-ellipse {
@@ -69,6 +91,11 @@ text {
     z-index: 2;
 
     transform: scale(1.23);
+
+    animation: wheel2Turning;
+    animation-duration: 6s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 }
 
 .wh3 {
@@ -76,6 +103,10 @@ text {
     z-index: 1;
 
     transform: scale(1.5);
+    animation: wheel3Turning;
+    animation-duration: 9s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 }
 
 .combination {

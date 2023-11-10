@@ -126,14 +126,17 @@ function startingPosition() {
 
     transformation = {
         transform : `rotate(${degWh1}deg) scale(${wh1Scale})`,
+        animation: 'none'
     }; Object.assign(wh1.style, transformation);
 
     transformation = {
         transform : `rotate(${degWh2}deg) scale(${wh2Scale})`,
+        animation: 'none'
     }; Object.assign(wh2.style, transformation);
 
     transformation = {
         transform : `rotate(${degWh3}deg) scale(${wh3Scale})`,
+        animation: 'none'
     }; Object.assign(wh3.style, transformation);
 
 }
